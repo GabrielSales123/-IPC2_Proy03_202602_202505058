@@ -1,0 +1,246 @@
+[
+  {
+    "TiempoOriginal": "Guatemala, 01/03/2025 10:00 hrs.",
+    "FechaEmision": "2025-03-01T10:00:00",
+    "Referencia": "G00001",
+    "NitEmisor": "5123453",
+    "NitReceptor": "999999K",
+    "Valor": 4997.77,
+    "Iva": 599.73,
+    "Total": 5597.50,
+    "Autorizada": true,
+    "CodigoAutorizacion": 2026102200000001,
+    "Errores": []
+  },
+  {
+    "TiempoOriginal": "Guatemala, 01/03/2025 10:00 hrs.",
+    "FechaEmision": "2025-03-01T10:00:00",
+    "Referencia": "G00002",
+    "NitEmisor": "999999K",
+    "NitReceptor": "1234560",
+    "Valor": 4518.87,
+    "Iva": 542.26,
+    "Total": 5061.13,
+    "Autorizada": true,
+    "CodigoAutorizacion": 2026102200000002,
+    "Errores": []
+  },
+  {
+    "TiempoOriginal": "Guatemala, 02/03/2025 10:00 hrs.",
+    "FechaEmision": "2025-03-02T10:00:00",
+    "Referencia": "G00003",
+    "NitEmisor": "8338817",
+    "NitReceptor": "999999K",
+    "Valor": 3268.36,
+    "Iva": 392.20,
+    "Total": 3660.56,
+    "Autorizada": true,
+    "CodigoAutorizacion": 2026102200000003,
+    "Errores": []
+  },
+  {
+    "TiempoOriginal": "Guatemala, 02/03/2025 10:00 hrs.",
+    "FechaEmision": "2025-03-02T10:00:00",
+    "Referencia": "G00004",
+    "NitEmisor": "999999K",
+    "NitReceptor": "1000004",
+    "Valor": 4117.13,
+    "Iva": 494.06,
+    "Total": 4611.19,
+    "Autorizada": true,
+    "CodigoAutorizacion": 2026102200000004,
+    "Errores": []
+  },
+  {
+    "TiempoOriginal": "Guatemala, 01/04/2025 10:00 hrs.",
+    "FechaEmision": "2025-04-01T10:00:00",
+    "Referencia": "E01",
+    "NitEmisor": "7378106",
+    "NitReceptor": "8338817",
+    "Valor": 1500.00,
+    "Iva": 180.00,
+    "Total": 1680.00,
+    "Autorizada": true,
+    "CodigoAutorizacion": 2026102200000005,
+    "Errores": []
+  },
+  {
+    "TiempoOriginal": "Guatemala, 01/04/2025 10:00 hrs.",
+    "FechaEmision": "2025-04-01T10:00:00",
+    "Referencia": "E02",
+    "NitEmisor": "8338817",
+    "NitReceptor": "5123453",
+    "Valor": 75.50,
+    "Iva": 9.06,
+    "Total": 84.56,
+    "Autorizada": true,
+    "CodigoAutorizacion": 2026102200000006,
+    "Errores": []
+  },
+  {
+    "TiempoOriginal": "Guatemala, 02/04/2025 10:00 hrs.",
+    "FechaEmision": "2025-04-02T10:00:00",
+    "Referencia": "E03",
+    "NitEmisor": "4509870",
+    "NitReceptor": "8338817",
+    "Valor": 100.00,
+    "Iva": 12.00,
+    "Total": 112.00,
+    "Autorizada": false,
+    "CodigoAutorizacion": null,
+    "Errores": [
+      "nitEmisorInexistente"
+    ]
+  },
+  {
+    "TiempoOriginal": "Guatemala, 02/04/2025 10:00 hrs.",
+    "FechaEmision": "2025-04-02T10:00:00",
+    "Referencia": "E04",
+    "NitEmisor": "7378106",
+    "NitReceptor": "7777779",
+    "Valor": 100.00,
+    "Iva": 12.00,
+    "Total": 112.00,
+    "Autorizada": false,
+    "CodigoAutorizacion": null,
+    "Errores": [
+      "nitReceptorInexistente"
+    ]
+  },
+  {
+    "TiempoOriginal": "Guatemala, 03/04/2025 10:00 hrs.",
+    "FechaEmision": "2025-04-03T10:00:00",
+    "Referencia": "E05",
+    "NitEmisor": "5123456",
+    "NitReceptor": "8338817",
+    "Valor": 100.00,
+    "Iva": 12.00,
+    "Total": 112.00,
+    "Autorizada": false,
+    "CodigoAutorizacion": null,
+    "Errores": [
+      "nitEmisorInvalido"
+    ]
+  },
+  {
+    "TiempoOriginal": "Guatemala, 03/04/2025 10:00 hrs.",
+    "FechaEmision": "2025-04-03T10:00:00",
+    "Referencia": "E06",
+    "NitEmisor": "7378106",
+    "NitReceptor": "12A4",
+    "Valor": 100.00,
+    "Iva": 12.00,
+    "Total": 112.00,
+    "Autorizada": false,
+    "CodigoAutorizacion": null,
+    "Errores": [
+      "nitReceptorInvalido"
+    ]
+  },
+  {
+    "TiempoOriginal": "Guatemala, 04/04/2025 10:00 hrs.",
+    "FechaEmision": "2025-04-04T10:00:00",
+    "Referencia": "E07",
+    "NitEmisor": "7378106",
+    "NitReceptor": "8338817",
+    "Valor": 100.00,
+    "Iva": 13.00,
+    "Total": 113.00,
+    "Autorizada": false,
+    "CodigoAutorizacion": null,
+    "Errores": [
+      "ivaMalCalculado"
+    ]
+  },
+  {
+    "TiempoOriginal": "Guatemala, 04/04/2025 10:00 hrs.",
+    "FechaEmision": "2025-04-04T10:00:00",
+    "Referencia": "E08",
+    "NitEmisor": "7378106",
+    "NitReceptor": "8338817",
+    "Valor": 100.00,
+    "Iva": 12.00,
+    "Total": 112.01,
+    "Autorizada": false,
+    "CodigoAutorizacion": null,
+    "Errores": [
+      "totalMalCalculado"
+    ]
+  },
+  {
+    "TiempoOriginal": "Guatemala, 05/04/2025 10:00 hrs.",
+    "FechaEmision": "2025-04-05T10:00:00",
+    "Referencia": "G00001",
+    "NitEmisor": "7378106",
+    "NitReceptor": "8338817",
+    "Valor": 100.00,
+    "Iva": 12.00,
+    "Total": 112.00,
+    "Autorizada": false,
+    "CodigoAutorizacion": null,
+    "Errores": [
+      "referenciaDuplicada"
+    ]
+  },
+  {
+    "TiempoOriginal": "Guatemala, 05/04/2025 10:00 hrs.",
+    "FechaEmision": "2025-04-05T10:00:00",
+    "Referencia": "E01",
+    "NitEmisor": "7378106",
+    "NitReceptor": "8338817",
+    "Valor": 100.00,
+    "Iva": 12.00,
+    "Total": 112.00,
+    "Autorizada": false,
+    "CodigoAutorizacion": null,
+    "Errores": [
+      "referenciaDuplicada"
+    ]
+  },
+  {
+    "TiempoOriginal": "Guatemala, 06/04/2025 10:00 hrs.",
+    "FechaEmision": "2025-04-06T10:00:00",
+    "Referencia": "E11",
+    "NitEmisor": "5123456",
+    "NitReceptor": "8338817",
+    "Valor": 200.00,
+    "Iva": 30.00,
+    "Total": 235.00,
+    "Autorizada": false,
+    "CodigoAutorizacion": null,
+    "Errores": [
+      "ivaMalCalculado",
+      "nitEmisorInvalido",
+      "totalMalCalculado"
+    ]
+  },
+  {
+    "TiempoOriginal": "Guatemala, 06/04/2025 10:00 hrs.",
+    "FechaEmision": "2025-04-06T10:00:00",
+    "Referencia": "E12",
+    "NitEmisor": "4509870",
+    "NitReceptor": "7777779",
+    "Valor": 100.00,
+    "Iva": 12.00,
+    "Total": 112.00,
+    "Autorizada": false,
+    "CodigoAutorizacion": null,
+    "Errores": [
+      "nitEmisorInexistente",
+      "nitReceptorInexistente"
+    ]
+  },
+  {
+    "TiempoOriginal": "Guatemala, 07/04/2025 10:00 hrs.",
+    "FechaEmision": "2025-04-07T10:00:00",
+    "Referencia": "E14",
+    "NitEmisor": "1000004",
+    "NitReceptor": "7378106",
+    "Valor": 10.05,
+    "Iva": 1.21,
+    "Total": 11.26,
+    "Autorizada": true,
+    "CodigoAutorizacion": 2026102200000007,
+    "Errores": []
+  }
+]

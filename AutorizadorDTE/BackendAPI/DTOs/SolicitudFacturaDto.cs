@@ -1,4 +1,4 @@
-namespace AutorizadorDTE.BackendAPI.Models
+namespace AutorizadorDTE.BackendAPI.DTOs
 {
     public class SolicitudFacturaDto
     {

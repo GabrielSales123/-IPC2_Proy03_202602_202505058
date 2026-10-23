@@ -32,3 +32,8 @@ C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorD
 C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\BackendAPI\obj\Debug\net10.0\BackendAPI.pdb
 C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\BackendAPI\obj\Debug\net10.0\BackendAPI.genruntimeconfig.cache
 C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\BackendAPI\obj\Debug\net10.0\ref\BackendAPI.dll
+C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\BackendAPI\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\BackendAPI\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\BackendAPI\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\BackendAPI\bin\Debug\net10.0\Data\rtu.json
+C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\BackendAPI\bin\Debug\net10.0\Data\facturas.json

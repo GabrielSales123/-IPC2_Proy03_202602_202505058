@@ -1,0 +1,19 @@
+@baseUrl = http://localhost:5250
+
+### Facturas emitidas por un NIT
+GET {{baseUrl}}/Consultas/Contribuyente?nit=7378106&tipo=emitidas&fechaInicio=2025-04-01&fechaFin=2025-04-07
+
+### Facturas recibidas por un NIT
+GET {{baseUrl}}/Consultas/Contribuyente?nit=8338817&tipo=recibidas&fechaInicio=2025-04-01&fechaFin=2025-04-07
+
+### Resumen de IVA por fecha y NIT
+GET {{baseUrl}}/Consultas/ResumenIva?fecha=2025-04-01
+
+### Resumen con IVA incluido
+GET {{baseUrl}}/Consultas/ResumenRango?fechaInicio=2025-04-01&fechaFin=2025-04-07&modo=total
+
+### Resumen sin IVA
+GET {{baseUrl}}/Consultas/ResumenRango?fechaInicio=2025-04-01&fechaFin=2025-04-07&modo=sinIva
+
+### Reporte estadístico de errores
+GET {{baseUrl}}/Consultas/ReporteErrores?fechaInicio=2025-04-01&fechaFin=2025-04-07

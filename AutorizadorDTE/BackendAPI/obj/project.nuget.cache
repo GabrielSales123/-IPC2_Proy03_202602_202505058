@@ -1,24 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "k2npno2baJQ=",
+  "dgSpecHash": "FRzJa6J260g=",
   "success": true,
   "projectFilePath": "C:\\Users\\Andri\\Documents\\Repositorios\\-IPC2_Proy03_202602_202505058\\AutorizadorDTE\\BackendAPI\\BackendAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Andri\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.10\\microsoft.aspnetcore.openapi.10.0.10.nupkg.sha512",
-    "C:\\Users\\Andri\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+    "C:\\Users\\Andri\\.nuget\\packages\\microsoft.extensions.apidescription.server\\10.0.0\\microsoft.extensions.apidescription.server.10.0.0.nupkg.sha512",
+    "C:\\Users\\Andri\\.nuget\\packages\\microsoft.openapi\\2.7.5\\microsoft.openapi.2.7.5.nupkg.sha512",
+    "C:\\Users\\Andri\\.nuget\\packages\\swashbuckle.aspnetcore\\10.3.1\\swashbuckle.aspnetcore.10.3.1.nupkg.sha512",
+    "C:\\Users\\Andri\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\10.3.1\\swashbuckle.aspnetcore.swagger.10.3.1.nupkg.sha512",
+    "C:\\Users\\Andri\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\10.3.1\\swashbuckle.aspnetcore.swaggergen.10.3.1.nupkg.sha512",
+    "C:\\Users\\Andri\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\10.3.1\\swashbuckle.aspnetcore.swaggerui.10.3.1.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "message": "El paquete \"Microsoft.OpenApi\" 2.0.0 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
-      "projectPath": "C:\\Users\\Andri\\Documents\\Repositorios\\-IPC2_Proy03_202602_202505058\\AutorizadorDTE\\BackendAPI\\BackendAPI.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\Andri\\Documents\\Repositorios\\-IPC2_Proy03_202602_202505058\\AutorizadorDTE\\BackendAPI\\BackendAPI.csproj",
-      "libraryId": "Microsoft.OpenApi",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }

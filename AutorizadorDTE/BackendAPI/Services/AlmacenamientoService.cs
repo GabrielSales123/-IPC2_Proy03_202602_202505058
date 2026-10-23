@@ -26,7 +26,8 @@ namespace AutorizadorDTE.BackendAPI.Services
 
         public async Task<T> LeerAsync<T>(
             string nombreArchivo,
-            T valorPorDefecto)
+            T valorPorDefecto,
+            CancellationToken cancellationToken = default)
         {
             string rutaArchivo = Path.Combine(
                 _rutaDatos,
@@ -39,7 +40,8 @@ namespace AutorizadorDTE.BackendAPI.Services
             }
 
             string contenido = await File.ReadAllTextAsync(
-                rutaArchivo
+                rutaArchivo,
+                cancellationToken
             );
 
             T? datos = JsonSerializer.Deserialize<T>(
