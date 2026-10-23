@@ -1,0 +1,53 @@
+@page
+@model FrontendWeb.Pages.Peticiones.ResumenIvaModel
+@{
+    ViewData["Title"] = "Resumen de IVA";
+    decimal maxIva = Model.Resultado?.getDetalle().SelectMany(x => new[] { x.getIvaEmitido(), x.getIvaRecibido() }).DefaultIfEmpty(0).Max() ?? 0;
+}
+
+<div class="content-panel">
+    <h1>Resumen de IVA por fecha y NIT</h1>
+    <form method="post" class="row g-3 no-print">
+        <div class="col-md-4">
+            <label asp-for="Fecha" class="form-label">Fecha</label>
+            <input asp-for="Fecha" type="date" class="form-control" required />
+        </div>
+        <div class="col-12"><button class="btn btn-primary" type="submit">Consultar</button></div>
+    </form>
+    @if (!string.IsNullOrWhiteSpace(Model.Error))
+    {
+        <div class="alert alert-danger mt-3">@Model.Error</div>
+    }
+    @if (Model.Resultado is not null)
+    {
+        <hr />
+        <div class="result-heading">
+            <h2 class="h4 mb-0">Movimientos del @Model.Resultado.getFecha()</h2>
+            <button class="btn btn-outline-secondary no-print" type="button" onclick="window.print()">Guardar como PDF</button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead><tr><th>NIT</th><th>IVA emitido</th><th>IVA recibido</th></tr></thead>
+                <tbody>
+                @foreach (var item in Model.Resultado.getDetalle())
+                {
+                    <tr><td>@item.getNit()</td><td>@item.getIvaEmitido().ToString("N2")</td><td>@item.getIvaRecibido().ToString("N2")</td></tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        <h3 class="h5 mt-4">Gráfica de IVA por NIT</h3>
+        @foreach (var item in Model.Resultado.getDetalle())
+        {
+            <div class="chart-row">
+                <strong>@item.getNit()</strong>
+                <div class="chart-bars" aria-label="IVA emitido y recibido">
+                    <div class="chart-bar" style="width: @Model.GetWidth(item.getIvaEmitido(), maxIva)" title="Emitido: @item.getIvaEmitido()"></div>
+                    <div class="chart-bar secondary" style="width: @Model.GetWidth(item.getIvaRecibido(), maxIva)" title="Recibido: @item.getIvaRecibido()"></div>
+                </div>
+                <span class="small">@Math.Max(item.getIvaEmitido(), item.getIvaRecibido()).ToString("N2")</span>
+            </div>
+        }
+        <div class="chart-legend"><span>IVA emitido</span><span class="secondary">IVA recibido</span></div>
+    }
+</div>

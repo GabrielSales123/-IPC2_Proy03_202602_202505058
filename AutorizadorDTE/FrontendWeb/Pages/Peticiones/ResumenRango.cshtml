@@ -1,0 +1,61 @@
+@page
+@model FrontendWeb.Pages.Peticiones.ResumenRangoModel
+@{
+    ViewData["Title"] = "Resumen por rango";
+    decimal maxMonto = Model.Resultado?.getDetalle().Select(x => x.getMonto()).DefaultIfEmpty(0).Max() ?? 0;
+}
+
+<div class="content-panel">
+    <h1>Resumen por rango de fechas</h1>
+    <form method="post" class="row g-3 no-print">
+        <div class="col-md-3">
+            <label asp-for="FechaInicio" class="form-label">Fecha inicial</label>
+            <input asp-for="FechaInicio" type="date" class="form-control" required />
+        </div>
+        <div class="col-md-3">
+            <label asp-for="FechaFin" class="form-label">Fecha final</label>
+            <input asp-for="FechaFin" type="date" class="form-control" required />
+        </div>
+        <div class="col-md-3">
+            <label asp-for="Modo" class="form-label">Tipo de valor</label>
+            <select asp-for="Modo" class="form-select">
+                <option value="total">Total</option>
+                <option value="sinIva">Sin IVA</option>
+            </select>
+        </div>
+        <div class="col-12"><button class="btn btn-primary" type="submit">Consultar</button></div>
+    </form>
+    @if (!string.IsNullOrWhiteSpace(Model.Error))
+    {
+        <div class="alert alert-danger mt-3">@Model.Error</div>
+    }
+    @if (Model.Resultado is not null)
+    {
+        <hr />
+        <div class="result-heading">
+            <h2 class="h4 mb-0">Valores autorizados — @Model.Resultado.getModo()</h2>
+            <button class="btn btn-outline-secondary no-print" type="button" onclick="window.print()">Guardar como PDF</button>
+        </div>
+        <p>Rango: @Model.Resultado.getFechaInicio() a @Model.Resultado.getFechaFin() · Total: <strong>@Model.Resultado.getTotalRango().ToString("N2")</strong></p>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead><tr><th>Fecha</th><th>Valor autorizado</th></tr></thead>
+                <tbody>
+                @foreach (var item in Model.Resultado.getDetalle())
+                {
+                    <tr><td>@item.getFecha()</td><td>@item.getMonto().ToString("N2")</td></tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        <h3 class="h5 mt-4">Gráfica por fecha</h3>
+        @foreach (var item in Model.Resultado.getDetalle())
+        {
+            <div class="chart-row">
+                <strong>@item.getFecha()</strong>
+                <div class="chart-bars"><div class="chart-bar" style="width: @Model.GetWidth(item.getMonto(), maxMonto)" title="@item.getMonto()"></div></div>
+                <span class="small">@item.getMonto().ToString("N2")</span>
+            </div>
+        }
+    }
+</div>

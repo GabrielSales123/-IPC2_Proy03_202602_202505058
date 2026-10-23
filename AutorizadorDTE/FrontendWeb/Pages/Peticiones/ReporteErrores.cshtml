@@ -1,0 +1,53 @@
+@page
+@model FrontendWeb.Pages.Peticiones.ReporteErroresModel
+@{
+    ViewData["Title"] = "Reporte de errores";
+}
+
+<div class="content-panel">
+    <h1>Reporte de errores</h1>
+    <form method="post" class="row g-3 no-print">
+        <div class="col-md-4">
+            <label asp-for="FechaInicio" class="form-label">Fecha inicial</label>
+            <input asp-for="FechaInicio" type="date" class="form-control" required />
+        </div>
+        <div class="col-md-4">
+            <label asp-for="FechaFin" class="form-label">Fecha final</label>
+            <input asp-for="FechaFin" type="date" class="form-control" required />
+        </div>
+        <div class="col-12"><button class="btn btn-primary" type="submit">Consultar</button></div>
+    </form>
+    @if (!string.IsNullOrWhiteSpace(Model.Error))
+    {
+        <div class="alert alert-danger mt-3">@Model.Error</div>
+    }
+    @if (Model.Resultado is not null)
+    {
+        <hr />
+        <div class="result-heading">
+            <h2 class="h4 mb-0">Errores del @Model.Resultado.getFechaInicio() al @Model.Resultado.getFechaFin()</h2>
+            <button class="btn btn-outline-secondary no-print" type="button" onclick="window.print()">Guardar como PDF</button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered align-middle">
+                <thead>
+                    <tr>
+                        <th>Fecha</th><th>Facturas recibidas</th><th>NIT emisor inválido</th><th>NIT receptor inválido</th>
+                        <th>Emisor inexistente</th><th>Receptor inexistente</th><th>IVA mal calculado</th><th>Total mal calculado</th>
+                        <th>Referencia duplicada</th><th>Sin errores</th><th>Emisores distintos</th><th>Receptores distintos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.Resultado.getDetalle())
+                {
+                    <tr>
+                        <td>@item.getFecha()</td><td>@item.getFacturasRecibidas()</td><td>@item.getNitEmisorInvalido()</td><td>@item.getNitReceptorInvalido()</td>
+                        <td>@item.getNitEmisorInexistente()</td><td>@item.getNitReceptorInexistente()</td><td>@item.getIvaMalCalculado()</td><td>@item.getTotalMalCalculado()</td>
+                        <td>@item.getReferenciaDuplicada()</td><td>@item.getFacturasSinErrores()</td><td>@item.getEmisoresDistintos()</td><td>@item.getReceptoresDistintos()</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

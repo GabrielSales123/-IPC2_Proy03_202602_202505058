@@ -1,0 +1,56 @@
+@page
+@model FrontendWeb.Pages.Peticiones.ContribuyenteModel
+@{
+    ViewData["Title"] = "Consultar contribuyente";
+}
+
+<div class="content-panel">
+    <h1>Consultar contribuyente</h1>
+    <form method="post" class="row g-3 no-print">
+        <div class="col-md-3">
+            <label asp-for="Nit" class="form-label">NIT del contribuyente</label>
+            <input asp-for="Nit" class="form-control" required />
+        </div>
+        <div class="col-md-3">
+            <label asp-for="Tipo" class="form-label">Tipo de facturas</label>
+            <select asp-for="Tipo" class="form-select">
+                <option value="emitidas">Emitidas</option>
+                <option value="recibidas">Recibidas</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label asp-for="FechaInicio" class="form-label">Fecha inicial</label>
+            <input asp-for="FechaInicio" type="date" class="form-control" required />
+        </div>
+        <div class="col-md-3">
+            <label asp-for="FechaFin" class="form-label">Fecha final</label>
+            <input asp-for="FechaFin" type="date" class="form-control" required />
+        </div>
+        <div class="col-12"><button class="btn btn-primary" type="submit">Consultar</button></div>
+    </form>
+    @if (!string.IsNullOrWhiteSpace(Model.Error))
+    {
+        <div class="alert alert-danger mt-3">@Model.Error</div>
+    }
+    @if (Model.Resultado is not null)
+    {
+        <hr />
+        <div class="result-heading">
+            <h2 class="h4 mb-0">Facturas @Model.Resultado.getTipo() — NIT @Model.Resultado.getNit()</h2>
+            <button class="btn btn-outline-secondary no-print" type="button" onclick="window.print()">Guardar como PDF</button>
+        </div>
+        <p>Rango: @Model.Resultado.getFechaInicio() a @Model.Resultado.getFechaFin()</p>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead><tr><th>Fecha</th><th>Facturas autorizadas</th><th>Monto total</th></tr></thead>
+                <tbody>
+                @foreach (var item in Model.Resultado.getDetalle())
+                {
+                    <tr><td>@item.getFecha()</td><td>@item.getCantidadFacturas()</td><td>@item.getMontoTotal().ToString("N2")</td></tr>
+                }
+                </tbody>
+                <tfoot><tr><th>Total del rango</th><th>@Model.Resultado.getTotalFacturas()</th><th>@Model.Resultado.getMontoTotalRango().ToString("N2")</th></tr></tfoot>
+            </table>
+        </div>
+    }
+</div>

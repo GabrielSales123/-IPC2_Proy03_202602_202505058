@@ -1,10 +1,19 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="hero-panel">
+    <p class="eyebrow">Sistema de autorización de documentos tributarios</p>
+    <h1>Bienvenido</h1>
+    <p class="lead">Envía solicitudes y consulta los resultados procesados por la API.</p>
+    <a class="btn btn-primary" asp-page="/EnviarMensaje">Enviar un mensaje</a>
+</div>
+<div class="row g-3 mt-2">
+    <div class="col-md-6 col-lg-4"><a class="home-card" asp-page="/Peticiones/Contribuyente"><strong>Consultar contribuyente</strong><span>Facturas emitidas o recibidas por rango de fechas.</span></a></div>
+    <div class="col-md-6 col-lg-4"><a class="home-card" asp-page="/Peticiones/ResumenIva"><strong>Resumen de IVA</strong><span>IVA emitido y recibido por NIT en una fecha.</span></a></div>
+    <div class="col-md-6 col-lg-4"><a class="home-card" asp-page="/Peticiones/ResumenRango"><strong>Resumen por rango</strong><span>Valores autorizados por día.</span></a></div>
+    <div class="col-md-6 col-lg-4"><a class="home-card" asp-page="/Peticiones/ReporteErrores"><strong>Reporte de errores</strong><span>Estadísticas de validación por fecha.</span></a></div>
+    <div class="col-md-6 col-lg-4"><a class="home-card" asp-page="/Inicializar"><strong>Inicializar</strong><span>Deja el sistema sin facturas guardadas.</span></a></div>
 </div>

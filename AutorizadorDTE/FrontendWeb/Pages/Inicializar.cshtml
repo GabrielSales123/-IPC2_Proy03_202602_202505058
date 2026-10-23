@@ -1,0 +1,17 @@
+@page
+@model FrontendWeb.Pages.InicializarModel
+@{
+    ViewData["Title"] = "Inicializar";
+}
+
+<div class="content-panel">
+    <h1>Inicializar sistema</h1>
+    <p>Esta acción envía una solicitud a la API para eliminar las facturas guardadas y regresar el sistema a su estado inicial.</p>
+    <form method="post" onsubmit="return confirm('¿Seguro que deseas inicializar? Se eliminarán las facturas guardadas.');">
+        <button class="btn btn-danger" type="submit">Inicializar ahora</button>
+    </form>
+    @if (!string.IsNullOrWhiteSpace(Model.Mensaje))
+    {
+        <div class="alert @(Model.Error ? "alert-danger" : "alert-success") mt-3">@Model.Mensaje</div>
+    }
+</div>

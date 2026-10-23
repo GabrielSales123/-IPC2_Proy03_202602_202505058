@@ -1,0 +1,146 @@
+@page
+@model FrontendWeb.Pages.EnviarMensajeModel
+@{
+    ViewData["Title"] = "Enviar mensaje";
+}
+
+<div class="content-panel">
+    <h1>Enviar mensaje</h1>
+    <p class="muted">Selecciona archivos JSON de actualización del RTU o solicitudes de facturas. Revisa la vista previa antes de enviarlos.</p>
+
+    <form method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="mb-3">
+            <label for="archivos" class="form-label">Archivos JSON</label>
+            <input id="archivos" class="form-control" type="file" accept=".json,application/json" multiple />
+        </div>
+        <div id="preview-error" class="alert alert-danger d-none" role="alert"></div>
+        <div id="preview" class="message-preview"></div>
+        <div id="mensajes-preparados"></div>
+        <button id="enviar" class="btn btn-primary mt-3" type="submit" disabled>Enviar mensajes en orden</button>
+    </form>
+
+    @if (Model.Resultados.Count > 0)
+    {
+        <hr />
+        <h2 class="h4">Resultado del envío</h2>
+        @foreach (var resultado in Model.Resultados)
+        {
+            <section class="border rounded p-3 mb-3">
+                <h3 class="h6">@resultado.Nombre (@resultado.Tipo)</h3>
+                @if (resultado.Aprobadas.HasValue)
+                {
+                    <p class="mb-2">Aprobadas: <strong>@resultado.Aprobadas</strong> · Rechazadas: <strong>@resultado.Rechazadas</strong></p>
+                }
+                @if (!resultado.Success)
+                {
+                    <div class="alert alert-danger">@resultado.Content</div>
+                }
+                else
+                {
+                    <pre>@resultado.Content</pre>
+                }
+            </section>
+        }
+    }
+</div>
+
+@section Scripts {
+<script>
+    const input = document.getElementById("archivos");
+    const preview = document.getElementById("preview");
+    const errorBox = document.getElementById("preview-error");
+    const hidden = document.getElementById("mensajes-preparados");
+    const sendButton = document.getElementById("enviar");
+
+    input.addEventListener("change", async () => {
+        preview.replaceChildren();
+        hidden.replaceChildren();
+        errorBox.textContent = "";
+        errorBox.classList.add("d-none");
+        sendButton.disabled = true;
+        const files = Array.from(input.files);
+        if (files.length === 0) return;
+
+        try {
+            for (let index = 0; index < files.length; index++) {
+                const file = files[index];
+                const content = await file.text();
+                const rows = JSON.parse(content);
+                if (!Array.isArray(rows) || rows.length === 0 || rows.some(row => row === null || typeof row !== "object" || Array.isArray(row))) {
+                    throw new Error(`${file.name}: el archivo debe contener un arreglo no vacío de objetos JSON.`);
+                }
+
+                const first = rows[0];
+                const isRtu = Object.hasOwn(first, "NIT") && Object.hasOwn(first, "nombre");
+                const isInvoice = Object.hasOwn(first, "TIEMPO") && Object.hasOwn(first, "REFERENCIA");
+                if (isRtu === isInvoice) {
+                    throw new Error(`${file.name}: no se reconoce si contiene contribuyentes RTU o facturas.`);
+                }
+                const type = isRtu ? "RTU" : "Facturas";
+                if (rows.some(row => {
+                    const rowIsRtu = Object.hasOwn(row, "NIT") && Object.hasOwn(row, "nombre");
+                    const rowIsInvoice = Object.hasOwn(row, "TIEMPO") && Object.hasOwn(row, "REFERENCIA");
+                    return rowIsRtu !== isRtu || rowIsInvoice !== isInvoice;
+                })) {
+                    throw new Error(`${file.name}: el archivo mezcla formatos distintos.`);
+                }
+
+                const section = document.createElement("section");
+                section.className = "border rounded p-3 mb-3";
+                const title = document.createElement("h2");
+                title.className = "h6";
+                title.textContent = `${index + 1}. ${file.name} — ${type} — ${rows.length} registros`;
+                section.appendChild(title);
+                const table = document.createElement("table");
+                table.className = "table table-sm table-striped mb-0";
+                const columns = Object.keys(first);
+                const head = document.createElement("tr");
+                columns.forEach(column => {
+                    const cell = document.createElement("th");
+                    cell.textContent = column;
+                    head.appendChild(cell);
+                });
+                const thead = document.createElement("thead");
+                thead.appendChild(head);
+                table.appendChild(thead);
+                const tbody = document.createElement("tbody");
+                rows.slice(0, 5).forEach(row => {
+                    const tr = document.createElement("tr");
+                    columns.forEach(column => {
+                        const cell = document.createElement("td");
+                        cell.textContent = row[column] == null ? "" : String(row[column]);
+                        tr.appendChild(cell);
+                    });
+                    tbody.appendChild(tr);
+                });
+                table.appendChild(tbody);
+                section.appendChild(table);
+                if (rows.length > 5) {
+                    const note = document.createElement("p");
+                    note.className = "muted mt-2 mb-0";
+                    note.textContent = `Vista previa de 5 de ${rows.length} registros.`;
+                    section.appendChild(note);
+                }
+                preview.appendChild(section);
+
+                for (const [name, value] of [["Nombres", file.name], ["Contenidos", content]]) {
+                    const field = document.createElement("input");
+                    field.type = "hidden";
+                    field.name = name;
+                    field.value = value;
+                    hidden.appendChild(field);
+                }
+            }
+            sendButton.disabled = false;
+        } catch (error) {
+            preview.replaceChildren();
+            hidden.replaceChildren();
+            errorBox.textContent = error instanceof SyntaxError
+                ? "Uno de los archivos contiene JSON inválido. Verifica su formato e inténtalo nuevamente."
+                : error.message;
+            errorBox.classList.remove("d-none");
+        }
+    });
+</script>
+}
