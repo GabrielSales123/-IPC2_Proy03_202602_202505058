@@ -29,7 +29,7 @@ namespace AutorizadorDTE.BackendAPI.Services
             Dictionary<string, Contribuyente> contribuyentes =
                 new Dictionary<string, Contribuyente>();
 
-            // Cargar los contribuyentes que ya existen.
+            
             foreach (SolicitudRtuDto dato in datosRTU)
             {
                 string nit = (dato.NIT ?? "")
@@ -47,7 +47,7 @@ namespace AutorizadorDTE.BackendAPI.Services
                 }
             }
 
-            // Procesar los contribuyentes recibidos.
+           
             foreach (SolicitudRtuDto solicitud in solicitudes)
             {
                 string nit = (solicitud.NIT ?? "")
@@ -71,7 +71,7 @@ namespace AutorizadorDTE.BackendAPI.Services
                 }
                 else
                 {
-                    // Registrar un contribuyente nuevo.
+                    
                     Contribuyente nuevo = new Contribuyente(
                         solicitud.nombre,
                         nit
