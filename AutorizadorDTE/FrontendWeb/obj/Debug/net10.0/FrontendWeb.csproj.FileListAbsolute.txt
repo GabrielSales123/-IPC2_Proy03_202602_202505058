@@ -24,7 +24,6 @@ C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorD
 C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\FrontendWeb\obj\Debug\net10.0\scopedcss\projectbundle\FrontendWeb.bundle.scp.css
 C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\FrontendWeb\obj\Debug\net10.0\compressed\sm12bboxyj-{0}-heg4y721vz-heg4y721vz.gz
 C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\FrontendWeb\obj\Debug\net10.0\compressed\lsz5q0u1if-{0}-61n19gt1b8-61n19gt1b8.gz
-C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\FrontendWeb\obj\Debug\net10.0\compressed\zq7e6g6ib5-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\FrontendWeb\obj\Debug\net10.0\compressed\vba4syxdbf-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\FrontendWeb\obj\Debug\net10.0\compressed\2guxyqkipx-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\Users\Andri\Documents\Repositorios\-IPC2_Proy03_202602_202505058\AutorizadorDTE\FrontendWeb\obj\Debug\net10.0\compressed\kny30yzx0u-{0}-erw9l3u2r3-erw9l3u2r3.gz
